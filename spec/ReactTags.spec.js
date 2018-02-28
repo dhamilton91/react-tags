@@ -129,6 +129,11 @@ describe('React Tags', () => {
       TestUtils.Simulate.blur($('input'))
       expect($('.is-focused')).toBeNull()
     })
+    
+    it('assigns the given maxInputLength', () => {
+      createInstance({ maxInputLength: 5 })
+      expect($('input').getAttribute('maxlength')).toEqual('5')
+    })
 
     it('calls focus and blur callbacks when provided', () => {
       createInstance({ autofocus: false })
